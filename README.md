@@ -3,7 +3,7 @@ The Twig-Broiler
 
 Basic setup to get you started with Twig. For setting up:
 
-1. Copy templates to yout template directory
+1. Copy templates to your template directory
 2. Modify `base_project.html.twig` to match your general project template
 3. Add more templates for special views
 
