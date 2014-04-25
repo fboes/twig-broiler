@@ -1,0 +1,39 @@
+{% extends base %}
+
+{% block title %}…{% endblock %}
+{% block description %}…{% endblock %}
+
+{% block meta %}
+	{{ parent() }}
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+{% endblock %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="/css/styles.css" />
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+{% endblock %}
+
+{% block banner %}
+	<a href="/">Home</a>
+{% endblock %}
+
+{% block navigation %}
+	<ul>
+		<li><a href="#">…</a></li>
+	</ul>
+{% endblock %}
+
+
+{% block aside_outer %}
+	<!-- No aside -->
+{% endblock %}
+
+{% block footer %}
+	<ul class="footer--links">
+		<li><a href="#">…</a></li>
+	</ul>
+{% endblock %}
+
+{% block javascript %}
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+{% endblock %}
