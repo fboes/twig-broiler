@@ -1,4 +1,4 @@
-The Twig-broiler
+The Twig-Broiler
 ============
 
 Basic setup to get you started with Twig. For setting up:
