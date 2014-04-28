@@ -1,21 +1,30 @@
 {% extends base %}
 
-{% block title %}…{% endblock %}
-{% block description %}…{% endblock %}
+{% block title %}{{ app.config.frontend.title }} | {{ app.config.frontend.sitename }}{% endblock %}
+{% block description %}{{ app.config.frontend.description }}{% endblock %}
 
 {% block meta %}
+	{% block opengraph %}
+		<meta property="og:title" content="{{ app.config.frontend.title }}" />
+		<meta property="og:description" content="{{ app.config.frontend.description }}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="{{ app.request.getUri() }}" />
+		<meta property="og:image" content="{{ app.asset_path }}/apple-touch-icon.png" />
+		<meta property="og:site_name" content="{{ app.config.frontend.sitename }}" />
+	{% endblock %}
 	{{ parent() }}
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 {% endblock %}
 
 {% block stylesheet %}
 	<!--[if gte IE 9]><!-->
-		<link rel="stylesheet" href="/css/styles.css" />
+		<link rel="stylesheet" href="{{ app.asset_path }}/css/styles.css" />
 	<!--<![endif]-->
 	<!--[if lt IE 9]>
-		<link rel="stylesheet" href="/css/desktop.css" />
+		<link rel="stylesheet" href="{{ app.asset_path }}/css/desktop.css" />
 	<![endif]-->
-	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="{{ app.asset_path }}/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" href="{{ app.asset_path }}/apple-touch-icon.png" type="image/png" />
 {% endblock %}
 
 {% block banner %}
