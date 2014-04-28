@@ -10,11 +10,16 @@ Basic setup to get you started with Twig. For setting up:
 
 For more information see [Twig Documentation](http://twig.sensiolabs.org/). Twig is used by [Symfony2](http://symfony.com/doc/current/book/templating.html), [Silex](http://silex.sensiolabs.org/doc/providers/twig.html) and [Drupal 8+](http://anthonyringoet.be/post/introduction-to-twig/).
 
-
-Silex
+Installation in Symfony
 -----
 
-Copy these lines to `/app/app.php` (assuming your templates to be in `/app/views/`):
+1. Copy these files to `/app/Ressources/views/`
+
+Installation in Silex
+-----
+
+1. Copy these files to `/app/views/`
+2. Copy these lines to `/app/app.php`
 
 ```
 $app['asset_path'] = '';

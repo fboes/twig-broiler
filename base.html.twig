@@ -31,7 +31,7 @@
 			<div id="main" class="main">
 				<main role="main">
 					{% block main %}
-						{% if app.session.getFlashBag.get('message') %}
+						{% if app.session.getFlashBag.has('message') %}
 							<ul class="main--messages">
 								{% for message in app.session.getFlashBag.get('message') %}
 									<li>{{ message }}</li>
