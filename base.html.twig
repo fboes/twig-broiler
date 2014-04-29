@@ -11,7 +11,7 @@
 	{% endblock %}
 	{% block stylesheet %}{% endblock %}
 </head>
-<body>
+<body class="{% block body_class %}body{% endblock %}">
 	<div id="container">
 		{% block banner_outer %}
 			<div id="banner" class="header">
@@ -31,10 +31,16 @@
 			<div id="main" class="main">
 				<main role="main">
 					{% block main %}
-						{% if app.session.getFlashBag.has('message') %}
+						{% if app.session.getFlashBag.has('message') or app.session.getFlashBag.has('error') or app.session.getFlashBag.has('success') %}
 							<ul class="main--messages">
 								{% for message in app.session.getFlashBag.get('message') %}
 									<li>{{ message }}</li>
+								{% endfor %}
+								{% for message in app.session.getFlashBag.get('error') %}
+									<li class="error">{{ message }}</li>
+								{% endfor %}
+								{% for message in app.session.getFlashBag.get('success') %}
+									<li class="success">{{ message }}</li>
 								{% endfor %}
 							</ul>
 						{% endif %}
