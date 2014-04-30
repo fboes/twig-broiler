@@ -1,0 +1,9 @@
+{ {% block json %}
+	"messages" : {
+		{% if app.session.getFlashBag.has('message') or app.session.getFlashBag.has('error') or app.session.getFlashBag.has('success') %}
+			"message" : {{ app.session.getFlashBag.get('message')|json_encode|raw }},
+			"error"   : {{ app.session.getFlashBag.get('error')|json_encode|raw }},
+			"success" : {{ app.session.getFlashBag.get('success')|json_encode|raw }},
+		{% endif %}
+	}
+{% endblock %} }
