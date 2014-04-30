@@ -13,15 +13,20 @@ For more information see [Twig Documentation](http://twig.sensiolabs.org/). Twig
 Installation in Symfony
 -----
 
-1. Copy these files to `/app/Ressources/views/`
+1. Copy files from `/views` to `/app/Ressources/views/`
+2. Create new bundle from `/TwigFilters`
 
 Installation in Silex
 -----
 
-1. Copy these files to `/app/views/`
-2. Copy these lines to `/app/app.php`
+1. Copy files from `/views` to `/app/views/`
+2. Copy files from `/TwigFilters` to `/src/TwigFilters`
+3. Copy these lines to `/app/app.php`
 
 ```
+$loader->add('TwigFilters', realpath(__DIR__.'/../src'));
+
+
 $app['asset_path'] = '';
 $app['locale']     = 'de';
 $app['config']['frontend'] = array(
@@ -32,6 +37,12 @@ $app['config']['frontend'] = array(
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
 	'twig.path' => __DIR__.'/views',
 ));
+$app['twig']->addExtension(new \TwigFilters\CsvExtension());
+$app['twig']->addExtension(new \TwigFilters\HelperExtension());
+$app['twig']->addExtension(new \TwigFilters\HtmlExtension());
+$app['twig']->addExtension(new \TwigFilters\JsExtension());
+$app['twig']->addExtension(new \TwigFilters\SocialMediaExtension());
+
 $app->before(function () use ($app) {
 	$app['twig']->addGlobal('base', $app['twig']->loadTemplate('base.html.twig'));
 	$app['twig']->addGlobal('base_project', $app['twig']->loadTemplate('base_project.html.twig'));
