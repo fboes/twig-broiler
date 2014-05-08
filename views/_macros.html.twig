@@ -1,0 +1,37 @@
+{% macro appletouchicon(url, mimeType = 'image/png') %}
+	<link rel="apple-touch-icon" type="{{ mimeType }}" href="{{ url }}" />
+{% endmacro %}
+
+{% macro favicon(url, mimeType = 'image/x-icon') %}
+	<link rel="shortcut icon" type="{{ mimeType }}" href="{{ url }}" />
+{% endmacro %}
+
+{% macro opengraph(title, description, url, sitename, image = NULL, type = 'website') %}
+	<meta name="description" content="{{ description|typo }}" />
+	<meta property="og:type" content="{{ type }}" />
+	<meta property="og:title" content="{{ title|typo }}" />
+	<meta property="og:description" content="{{ description|typo }}" />
+	<meta property="og:url" content="{{ url|full_url_http }}" />
+	<meta property="og:site_name" content="{{ sitename }}" />
+	{% if image %}
+		<meta property="og:image" content="{{ image|full_url_http }}" />
+	{% endif %}
+{% endmacro %}
+
+{% macro opengraph_video(videoUrl) %}
+	<meta property="og:video" content="{{ videoUrl|full_url_http }}" />
+{% endmacro %}
+
+{% macro script(script) %}
+	<script>/*<![CDATA[*/
+	{{ script | raw }}
+	/*]]>*/</script>
+{% endmacro %}
+
+{% macro script_src(src) %}
+	<script src="{{ src }}"></script>
+{% endmacro %}
+
+{% macro script_jQuery(version = "1.10.2") %}
+	<script src="//code.jquery.com/jquery-{{ version }}.min.js"></script>
+{% endmacro %}
