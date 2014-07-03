@@ -13,18 +13,20 @@ For more information see [Twig Documentation](http://twig.sensiolabs.org/). Twig
 Installation in Symfony
 -----
 
-1. Copy files from `/views` to `/app/Ressources/views/`
-2. Create new bundle from `/TwigFilters`
+1. Copy files from `/TwigBroiler/Ressources/views` to `/app/Ressources/views/`
+2. Create new bundle in `/src/TwigBroilerBundle` via `php app/console generate:bundle`
+3. Copy all files to `/src/TwigBroilerBundle`
+4. Create `/src/TwigFiltersBundle/Ressources/config/services.yml`
 
 Installation in Silex
 -----
 
-1. Copy files from `/views` to `/app/views/`
-2. Copy files from `/TwigFilters` to `/src/TwigFilters`
+1. Copy files from `/TwigBroiler/Ressources/views` to `/app/views/`
+2. Copy files from `/TwigBroiler` to `/src/TwigBroiler`
 3. Copy these lines to `/app/app.php`
 
 ```
-$loader->add('TwigFilters', realpath(__DIR__.'/../src'));
+$loader->add('TwigBroiler', realpath(__DIR__.'/../src'));
 
 
 $app['asset_path'] = '';
@@ -37,11 +39,11 @@ $app['config']['frontend'] = array(
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
 	'twig.path' => __DIR__.'/views',
 ));
-$app['twig']->addExtension(new \TwigFilters\CsvExtension());
-$app['twig']->addExtension(new \TwigFilters\HelperExtension());
-$app['twig']->addExtension(new \TwigFilters\HtmlExtension());
-$app['twig']->addExtension(new \TwigFilters\JsExtension());
-$app['twig']->addExtension(new \TwigFilters\SocialMediaExtension());
+$app['twig']->addExtension(new \TwigBroiler\Twig\CsvExtension());
+$app['twig']->addExtension(new \TwigBroiler\Twig\HelperExtension());
+$app['twig']->addExtension(new \TwigBroiler\Twig\HtmlExtension());
+$app['twig']->addExtension(new \TwigBroiler\Twig\JsExtension());
+$app['twig']->addExtension(new \TwigBroiler\Twig\SocialMediaExtension());
 
 $app->before(function () use ($app) {
 	$app['twig']->addGlobal('base', $app['twig']->loadTemplate('base.html.twig'));

@@ -1,6 +1,6 @@
 <?php
 
-namespace TwigFilters;
+namespace TwigBrolier\Twig;
 
 class HelperExtension extends \Twig_Extension
 {
