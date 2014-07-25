@@ -51,6 +51,11 @@ $app->before(function () use ($app) {
 });
 ```
 
+Version
+-------
+
+Version: 0.9 (2014-07-25)
+
 Legal stuff
 -----------
 
