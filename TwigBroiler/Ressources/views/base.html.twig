@@ -1,7 +1,5 @@
 {% import '_macros.html.twig' as macros %}
-<!--[if (IE 8)&(!IEMobile)]><html class="ie8" lang="{{ app.request.locale }}"><![endif]-->
-<!--[if (IE 9)&(!IEMobile)]><html class="ie9" lang="{{ app.request.locale }}"><![endif]-->
-<!--[if (gt IE 9)]><!--><html lang="{{ app.request.locale }}" prefix="og: http://ogp.me/ns#"><!--<![endif]-->
+<html lang="{{ app.request.locale }}" prefix="og: http://ogp.me/ns#">
 <head>
 	<meta charset="{{ _charset|lower }}" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,7 +9,9 @@
 	{% endblock %}
 	{% block stylesheet %}{% endblock %}
 </head>
-<body class="{% block body_class %}body{% endblock %}">
+<!--[if (IE 8)&(!IEMobile)]><body class="ie8 {% block body_class %}body{% endblock %}"><![endif]-->
+<!--[if (IE 9)&(!IEMobile)]><body class="ie9 {% block body_class %}body{% endblock %}"><![endif]-->
+<!--[if (gt IE 9)]><!--><body class="{% block body_class %}body{% endblock %}"><!--<![endif]-->
 	<div id="container">
 		{% block banner_outer %}
 			<div id="banner" class="header">
