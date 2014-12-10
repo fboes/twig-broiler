@@ -1,6 +1,6 @@
 <?php
 
-namespace TwigBrolier\Twig;
+namespace TwigBroiler\Twig;
 
 class HtmlExtension extends \Twig_Extension
 {
